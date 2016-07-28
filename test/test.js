@@ -6,5 +6,9 @@ var client = wrapper({
 	apiKey: apiKey
 });
 client.heartbeat(function(err,res){
-	console.log(err, res);
+	console.log('heartbeat',err, res);
+});
+
+client.venue('MTMEX',function(err,res){
+	console.log('venue',err, res);
 });

@@ -27,6 +27,23 @@ var wrapper = function (options) {
 				}
 				return callback(null, body);
 			});
+		},
+		venue: function(venue, callback){
+			if (typeof venue === 'function'){
+				callback = venue;
+				venue = null;
+			}
+			if (!venue){
+				if (typeof callback === 'function'){
+					return callback('Venue not found', null);
+				}
+			}
+			client.get('/venues/'+venue+'/heartbeat', function(err, res, body){
+				if (err){
+					return callback(err, null);
+				}
+				return callback(null, body);
+			});
 		}
 	};
 };
