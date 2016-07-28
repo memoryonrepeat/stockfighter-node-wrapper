@@ -1,0 +1,25 @@
+{
+  "name": "stockfighter-node-wrapper",
+  "version": "0.0.1",
+  "description": "Stockfighter client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tienthanh8490/stockfighter-node-wrapper.git"
+  },
+  "keywords": [
+    "stockfighter"
+  ],
+  "author": "tienthanh8490@gmail.com",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/tienthanh8490/stockfighter-node-wrapper/issues"
+  },
+  "homepage": "https://github.com/tienthanh8490/stockfighter-node-wrapper#readme",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}
