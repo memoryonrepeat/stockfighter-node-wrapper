@@ -10,12 +10,24 @@ var wrapper = function (options) {
 	}
 
 	var baseUrl = 'https://api.stockfighter.io/ob/api/';
-	var client = request.default({
-		baseUrl: baseUrl
+
+	var client = request.defaults({
+		baseUrl: baseUrl,
+		headers: {
+			'X-Starfighter-Authorization': options.apiKey
+		},
+		json: true
 	});
 
 	return {
-
+		heartbeat: function(callback){
+			client.get('/heartbeat', function(err, res, body){
+				if (err){
+					return callback(err, null);
+				}
+				return callback(null, body);
+			});
+		}
 	};
 };
 
