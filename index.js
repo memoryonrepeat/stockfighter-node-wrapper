@@ -55,6 +55,19 @@ var wrapper = function (options) {
 					return callback(null, body);
 				});	
 			}
+		},
+		stock: {
+			orderbook: function(venue, stock, callback){
+				// TODO: Catch parameter exceptions
+				// NOTE: This function is not reliable for real time trading.
+				// Refer to core API for more explanation.
+				client.get('/venues/'+venue+'/stocks/'+stock, function(err, res, body){
+					if (err){
+						return callback(err, null);
+					}
+					return callback(null, body);
+				});
+			}
 		}
 	};
 };

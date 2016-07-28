@@ -16,3 +16,7 @@ client.venue.heartbeat('MTMEX',function(err,res){
 client.venue.stocks('MTMEX',function(err,res){
 	console.log('venue',err, res);
 });
+
+client.stock.orderbook('MTMEX','ITF',function(err,res){
+	console.log('venue',err, res);
+});
