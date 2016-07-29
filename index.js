@@ -1,4 +1,8 @@
-// TODO: Try using Promise (bluebird) or ES6 later
+// TODO: 
+// Try using Promise (bluebird) or ES6
+// Is this API developer friendly enough ?
+// Better to prioritize REST verbs over entities ? 
+// Read up on API design to figure out
 var request = require('request');
 
 var wrapper = function (options) {
@@ -89,6 +93,18 @@ var wrapper = function (options) {
 			},
 			delete: function(venue, stock, id, callback){
 				client.delete('/venues/'+venue+'/stocks/'+stock+'/orders/'+id, function(err, res, body){
+					if (err){
+						return callback(err, null);
+					}
+					return callback(null, body);
+				});
+			},
+			post: function(venue, stock, order, callback){
+				var options = {
+					url: '/venues/'+venue+'/stocks/'+stock+'/orders/',
+					body: order
+				}
+				client.post(options, function(err, res, body){
 					if (err){
 						return callback(err, null);
 					}
