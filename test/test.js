@@ -1,4 +1,4 @@
-var expect = require('chai').expect; // Use 
+var expect = require('chai').expect; // Use expect to adopt BDD style
 var wrapper = require('../index.js');
 var apiKey = '7c57e4645e08460f21f19a511d6f195e5f1a7a30';
 var client = null;
@@ -42,6 +42,13 @@ describe('API', function(){
 	});
 	
 	describe('#heartbeat', function(){
-		
+		it('should successfully return system heartbeat', function(done){
+			client.heartbeat(function(err,res){
+				expect(err).to.be.equal(null);
+				expect(res).to.have.ownProperty('ok');
+				expect(res).to.have.ownProperty('error');
+				done();
+			});
+		});
 	});
 });

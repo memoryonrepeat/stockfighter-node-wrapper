@@ -23,6 +23,7 @@ var wrapper = function (options) {
 		heartbeat: function(callback){
 			client.get('/heartbeat', function(err, res, body){
 				if (err){
+					// Maybe include the case where res !== 200 also ?
 					return callback(err, null);
 				}
 				return callback(null, body);
