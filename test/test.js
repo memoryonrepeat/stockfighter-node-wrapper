@@ -1,7 +1,7 @@
-// TODO: Use mocha for proper testing
-var assert = require('chai').assert;
+var expect = require('chai').expect; // Use 
 var wrapper = require('../index.js');
 var apiKey = '7c57e4645e08460f21f19a511d6f195e5f1a7a30';
+var client = null;
 /*
 var failed_client = wrapper({}); // should throw exception
 var client = wrapper({
@@ -27,21 +27,21 @@ describe('API', function(){
 	describe('#instantiation', function(){
 
 		it('should fail when API key is not provided', function(){
-			assert.throws(function(){
-				var client = wrapper({});
-			},'API key is missing');
+			expect(function(){
+				client = wrapper({});
+			}).to.throw('API key is missing');
 		});
 
-		it('should pass when API key is not provided', function(){
-			assert.doesNotThrow(function(){
-				var client = wrapper({
+		it('should pass when API key is provided', function(){
+			expect(function(){
+				client = wrapper({
 					apiKey: apiKey
 				});
-			});
+			}).to.not.throw(Error);
 		});
 	});
 	
 	describe('#heartbeat', function(){
-
+		
 	});
 });
