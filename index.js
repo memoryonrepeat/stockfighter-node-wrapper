@@ -86,6 +86,14 @@ var wrapper = function (options) {
 					}
 					return callback(null, body);
 				});
+			},
+			delete: function(venue, stock, id, callback){
+				client.delete('/venues/'+venue+'/stocks/'+stock+'/orders/'+id, function(err, res, body){
+					if (err){
+						return callback(err, null);
+					}
+					return callback(null, body);
+				});
 			}
 		},
 		account: {
