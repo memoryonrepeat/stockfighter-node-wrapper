@@ -4,7 +4,7 @@
   "description": "Stockfighter client",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/tienthanh8490/stockfighter-node-wrapper#readme",
   "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
     "request": "^2.74.0"
   }
 }
