@@ -68,6 +68,44 @@ var wrapper = function (options) {
 					}
 					return callback(null, body);
 				});
+			},
+			quote: function(venue, stock, callback){
+				client.get('/venues/'+venue+'/stocks/'+stock+'/quote', function(err, res, body){
+					if (err){
+						return callback(err, null);
+					}
+					return callback(null, body);
+				});	
+			}
+		},
+		order: {
+			status: function(venue, stock, id, callback){
+				client.get('/venues/'+venue+'/stocks/'+stock+'/orders/'+id, function(err, res, body){
+					if (err){
+						return callback(err, null);
+					}
+					return callback(null, body);
+				});
+			}
+		},
+		account: {
+			orders: {
+				all: function(venue, account, callback){
+					client.get('/venues/'+venue+'/accounts/'+account+'/orders/', function(err, res, body){
+						if (err){
+							return callback(err, null);
+						}
+						return callback(null, body);
+					});
+				},
+				stock: function(venue, account, stock, callback){
+					client.get('/venues/'+venue+'/accounts/'+account+'/stocks/'+stock+'/orders', function(err, res, body){
+						if (err){
+							return callback(err, null);
+						}
+						return callback(null, body);
+					});
+				}
 			}
 		}
 	};
